@@ -146,13 +146,13 @@
   <?php endforeach; ?>
 
   <?php
-  function filterByAuthor($books)
+  function filterByAuthor($books, $author)
   {
     $filteredBooksArray = [];
 
     foreach ($books as $book) {
 
-      if ($book['author'] === 'Andy Weir') {
+      if ($book['author'] === $author) {
         $filteredBooksArray[] = $book;
       }
     }
@@ -164,11 +164,61 @@
 
   <h2>Printed using filter array function </h2>
   <ul>
-    <?php foreach (filterByAuthor($books) as $book) : ?>
+    <?php foreach (filterByAuthor($books, 'Philip K. Dick') as $book) : ?>
       <li><?= $book['name'] ?></li>
     <?php endforeach; ?>
   </ul>
 
+ <h3>HW for Filtered functions</h3>
+
+  <!-- 
+  1)create an array of fav movies and release dates
+
+  2)Write a function that filters your list of movies 
+  down to only those that were released in the year 2000 or higher.
+
+  3) Result should be in an unordered list
+ -->
+
+
+  <?php
+  $favoriteMovies = [
+    [
+      'title' => 'Grease',
+      'releaseDate' => 1978
+    ],
+    [
+      'title' => 'The Goonies',
+      'releaseDate' => 1985
+    ],
+    [
+      'title' => 'Mean Girls',
+      'releaseDate' => 2005
+    ],
+    [
+      'title' => 'Inception',
+      'releaseDate' => 2010
+    ],
+  ];
+
+  function movieFilter($favoriteMovies)
+  {
+    $filteredMoviesArray = [];
+    foreach ($favoriteMovies as $movie) {
+      if ($movie['releaseDate'] >= 2000) {
+        $filteredMoviesArray[] = $movie;
+      }
+    }
+
+    return $filteredMoviesArray;
+  }
+  ?>
+
+  <ul>
+    <?php foreach(movieFilter($favoriteMovies) as $movie) : ?>
+      <li><?= $movie['title']; ?></li>
+      <?php endforeach ?>
+  </ul>
 
 </body>
 
