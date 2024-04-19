@@ -39,7 +39,7 @@
 
 
   <div>
-  <!-- Conditions in PHP -->
+    <!-- Conditions in PHP -->
     <?php
     $name = "Dark Matter";
     $read = true;
@@ -72,12 +72,103 @@
   ?>
 
   <h1>Recommended Books</h1>
+  <!-- Using curly brackets -->
   <ul>
-    <?php foreach($books as $book) {
+    <?php foreach ($books as $book) {
       echo "<li>$book</li>";
     }
     ?>
   </ul>
+
+  <!-- Short had to provide views/ fragments -->
+  <ul>
+    <?php foreach ($books as $book) : ?>
+      <!-- short hand -->
+      <li><?= $book; ?></li>
+    <?php endforeach; ?>
+  </ul>
+
+
+  <h1>Arrays</h1>
+
+  <p>Select Item of a list</p>
+  <?= $books[1] ?>
+
+  <h2>Associative Arrays</h2>
+  <?php
+  $books = [
+    [
+      'name' => 'Do Androids Dream of Electric Sheep',
+      'author' => 'Philip K. Dick',
+      'purchaseUrl' => 'www.example.com',
+      'releaseYear' => 2006
+    ],
+    [
+      'name' => 'The Langoliers',
+      'author' => 'Andy Weir',
+      'purchaseUrl' => 'www.example.com',
+      'releaseYear' => 2003,
+    ],
+    [
+      'name' => 'Hail Mary',
+      'author' => 'HM author',
+      'purchaseUrl' => 'www.example.com',
+      'releaseYear' => 2010,
+    ],
+    [
+      'name' => 'The Martian',
+      'author' => 'Andy Weir',
+      'purchaseUrl' => 'www.example.com',
+      'releaseYear' => 2011,
+    ],
+
+  ]
+  ?>
+  <!-- Looping 2d array -->
+  <?php foreach ($books as $book) : ?>
+    <!-- for displaying two variable within the same array you need to 
+  open new php braces -->
+
+    <!-- /**Why the parentheses? */ -->
+    <li><?= $book['name'] ?> (<?= $book['releaseYear'] ?>)</li>
+  <?php endforeach; ?>
+
+
+  <h1>Functions</h1>
+  <h2>Printed using conditions </h2>
+
+  <!-- Filter array with books only written by Andy Weir using conditions -->
+  <?php foreach ($books as $book) :  ?>
+    <?php if ($book['author'] === 'Andy Weir') : ?>
+      <li><?= $book['name'] ?></li>
+    <?php endif; ?>
+
+  <?php endforeach; ?>
+
+  <?php
+  function filterByAuthor($books)
+  {
+    $filteredBooksArray = [];
+
+    foreach ($books as $book) {
+
+      if ($book['author'] === 'Andy Weir') {
+        $filteredBooksArray[] = $book;
+      }
+    }
+
+    return $filteredBooksArray;
+  }
+
+  ?>
+
+  <h2>Printed using filter array function </h2>
+  <ul>
+    <?php foreach (filterByAuthor($books) as $book) : ?>
+      <li><?= $book['name'] ?></li>
+    <?php endforeach; ?>
+  </ul>
+
 
 </body>
 
