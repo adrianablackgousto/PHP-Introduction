@@ -8,3 +8,6 @@ Runs index.php
 ``php -S localhost:8888`` - -S Runs with build in webserver
 
 Lambda Functions
+
+Super Global
+_SERVER
