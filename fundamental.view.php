@@ -104,7 +104,7 @@ $books = [
 
 
     <!-- /**Why the parentheses? */ -->
-<!--    <li>--><?php //= $book['name'] ?><!-- (--><?php //= $book['releaseYear'] ?><!--)</li>-->
+    <!--    <li>--><?php //= $book['name'] ?><!-- (--><?php //= $book['releaseYear'] ?><!--)</li>-->
 <?php endforeach; ?>
 
 
@@ -138,9 +138,9 @@ $books = [
 
 <h2>Printed using filter array function </h2>
 <ul>
-<!--    --><?php //foreach (filterByAuthor($books, 'Philip K. Dick') as $book) : ?>
-<!--        <li>--><?php //= $book['name'] ?><!--</li>-->
-<!--    --><?php //endforeach; ?>
+    <!--    --><?php //foreach (filterByAuthor($books, 'Philip K. Dick') as $book) : ?>
+    <!--        <li>--><?php //= $book['name'] ?><!--</li>-->
+    <!--    --><?php //endforeach; ?>
 </ul>
 
 <h3>HW for Filtered functions</h3>
