@@ -11,3 +11,13 @@ Lambda Functions
 
 Super Global
 _SERVER
+
+
+In order to connect to mySql need to create a new instance of the PDO class (PHP DATA OBECJTS)
+`new PDO(dsn)`
+dsn = data source name - connection string that delcares your connections to the data base port, host
+
+Interesting PHP helpers
+`PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC`
+
+`http_build_query` - concats the object keys into string, used to form a dsn
