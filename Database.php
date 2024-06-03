@@ -36,11 +36,13 @@ class Database {
         ]);
     }
 
-    public function query($query) {
+    public function query($query, $id) {
 
 
         $statement = $this->connection->prepare($query);
-        $statement->execute();
+
+        $statement->execute($id);
+
         return $statement;
     }
 }
