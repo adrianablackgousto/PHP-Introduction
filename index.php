@@ -8,12 +8,12 @@ $config = require('config.php');
 
 $db = new Database($config['database']);
 
-$query = "SELECT * FROM posts where id = ? ";
+$query = "SELECT * FROM posts where id = :id ";
 
 $id = $_GET['id'];
 
 
-$posts = $db->query($query, [$id])->fetch();
+$posts = $db->query($query, [':id' => $id])->fetch();
 
 dieAndDump($posts);
 
